@@ -1,0 +1,26 @@
+# Copyright 2024 Microsoft GmbH.
+# Use of this source code is governed by a BSD-style license that can be
+# found in the LICENSE file.
+
+assert(is_win)
+
+source_set("lib") {
+  sources = [
+    "util_win_impl.cc",
+    "util_win_impl.h",
+  ]
+
+  configs += [ "//build/config/compiler:wexit_time_destructors" ]
+
+  deps = [
+    "//base",
+    "//chrome/common",
+    "//components/variations",
+    "//components/version_info",
+    "//mojo/public/cpp/bindings",
+  ]
+
+  public_deps = [
+    "//electron/shell/services/util_win/public/mojom",
+  ]
+}
